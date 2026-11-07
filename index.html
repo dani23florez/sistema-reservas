@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilidad de Espacios - Sistema de Reservas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Reservas</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" aria-current="page">Disponibilidad</a></li>
+                <li><a href="mis-reservas.html">Mis Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Disponibilidad de Espacios</h2>
+        <p class="descripcion-seccion">Consulta las franjas ocupadas u libres antes de realizar tu registro[span_2](start_span)[span_2](end_span).</p>
+
+        <section class="filtros" aria-label="Filtros de búsqueda">
+            <div class="campo">
+                <label for="recurso-select">Recurso:</label>
+                <select id="recurso-select">
+                    <option value="sala-a">Sala A</option>
+                    <option value="sala-b">Sala B</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="fecha-select">Fecha (dd/mm/aaaa):</label>
+                <input type="date" id="fecha-select" value="2026-11-05">
+            </div>
+        </section>
+
+        <section class="grid-horarios" aria-label="Franjas horarias">
+            <h3>Franjas para la fecha seleccionada</h3>
+            <table class="tabla-disponibilidad">
+                <thead>
+                    <tr>
+                        <th>Franja Horaria</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00 - 10:00</td>
+                        <td><span class="badge libre">Libre</span></td>
+                    </tr>
+                    <tr>
+                        <td>10:00 - 11:00</td>
+                        <td><span class="badge ocupado">Ocupado</span></td>
+                    </tr>
+                    <tr>
+                        <td>11:00 - 12:00</td>
+                        <td><span class="badge libre">Libre</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="acciones">
+            <a href="reservacion.html" class="btn-primario">Nueva reserva</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Universidad de Caldas - Sistema de Reservas</p>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

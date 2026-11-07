@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Reserva - Sistema de Reservas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Reservas</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Disponibilidad</a></li>
+                <li><a href="mis-reservas.html">Mis Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Detalle de Reserva</h2>
+
+        <section class="ficha-detalle" aria-label="Información completa de la reserva">
+            <div class="grupo-detalle">
+                <span class="etiqueta">Identificador:</span>
+                <span class="valor">101</span>
+            </div>
+            <div class="grupo-detalle">
+                <span class="etiqueta">Espacio Asignado:</span>
+                <span class="valor">Sala A</span>
+            </div>
+            <div class="grupo-detalle">
+                <span class="etiqueta">Fecha Seleccionada:</span>
+                <span class="valor">05/11/2026</span>
+            </div>
+            <div class="grupo-detalle">
+                <span class="etiqueta">Franja Horaria:</span>
+                <span class="valor">10:00 a 11:00</span>
+            </div>
+            <div class="grupo-detalle">
+                <span class="etiqueta">Estado Actual:</span>
+                <span class="valor"><span class="badge activa">Activa</span></span>
+            </div>
+
+            <p class="nota-politica">
+                <em>Política de cancelación: Puedes cancelar tu reserva sin penalización hasta 1 hora antes de la franja programada.</em>
+            </p>
+        </section>
+
+        <section class="acciones-detalle">
+            <button type="button" class="btn-peligro" onclick="alert('Reserva cancelada exitosamente')">Cancelar reserva</button>
+            <a href="mis-reservas.html" class="btn-secundario">Volver a mis reservas</a>
+        </section>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>

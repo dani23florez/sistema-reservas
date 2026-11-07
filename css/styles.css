@@ -1,0 +1,182 @@
+:root {
+    --color-primario: #1a56db;
+    --color-secundario: #4b5563;
+    --color-fondo: #f8fafc;
+    --color-texto: #1e293b;
+    --color-error: #dc2626;
+    --color-exito: #16a34a;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 500;
+}
+
+header nav a[aria-current="page"] {
+    color: var(--color-primario);
+    font-weight: bold;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Foco visible estricto para accesibilidad por teclado (Tab / Shift+Tab)[span_17](start_span)[span_17](end_span) */
+a:focus, button:focus, input:focus, select:focus {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 2px;
+}
+
+/* Formularios y Campos */
+.campo {
+    margin-bottom: 1.25rem;
+}
+
+.campo label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5srem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Alertas y Errores (W3C WAI aria-live)[span_18](start_span)[span_18](end_span) */
+.alerta-error {
+    background-color: #fef2f2;
+    border: 2px solid var(--color-error);
+    color: var(--color-error);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+.alerta-error h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+/* Botones y Enlaces de Acción */
+.btn-primario {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-secundario {
+    background-color: #e2e8f0;
+    color: var(--color-texto);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+.btn-peligro {
+    background-color: var(--color-error);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Tablas y Badges de Estado */
+.tabla-disponibilidad {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tabla-disponibilidad th, .tabla-disponibilidad td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge.libre { background-color: #dcfce7; color: #166534; }
+.badge.ocupado { background-color: #fee2e2; color: #991b1b; }
+.badge.activa { background-color: #dbeafe; color: #1e40af; }
+
+/* Tarjetas de Mis Reservas y Detalle */
+.tarjeta-reserva, .ficha-detalle {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ficha-detalle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.grupo-detalle {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 0.5rem;
+}

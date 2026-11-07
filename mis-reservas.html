@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Reservas - Sistema de Reservas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Reservas</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Disponibilidad</a></li>
+                <li><a href="mis-reservas.html" aria-current="page">Mis Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Mis Reservas Activas</h2>
+
+        <!-- LISTADO DE RESERVAS -->
+        <div class="lista-tarjetas">
+            <article class="tarjeta-reserva">
+                <div class="info-reserva">
+                    <span class="id-reserva">ID: 101</span>
+                    <h3>Sala A</h3>
+                    <p>Fecha: 05/11/2026 | 10:00 - 11:00</p>
+                    <span class="badge activa">Activa</span>
+                </div>
+                <div class="acciones-tarjeta">
+                    <a href="detalle.html" class="btn-secundario">Ver detalle</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 
+          ESTADO VACÍO (P04_vacio): 
+          Descomentar este bloque si el usuario no tiene registros previos[span_13](start_span)[span_13](end_span).
+        -->
+        <!--
+        <div class="estado-vacio" style="display: none;">
+            <p>Aún no tienes reservas. Consulta los espacios disponibles para crear la primera[span_14](start_span)[span_14](end_span).</p>
+            <a href="index.html" class="btn-primario">Consultar disponibilidad</a>
+        </div>
+        -->
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>
