@@ -1,182 +1,263 @@
+/* ==========================================================================
+   SISTEMA DE RESERVAS DE ESPACIOS - DESIGN SYSTEM (UI/UX MODERNIZADO)
+   Universidad de Caldas • Cumplimiento WCAG 2.1 AA
+   ========================================================================== */
+
 :root {
-    --color-primario: #1a56db;
-    --color-secundario: #4b5563;
-    --color-fondo: #f8fafc;
-    --color-texto: #1e293b;
-    --color-error: #dc2626;
-    --color-exito: #16a34a;
+    /* Paleta Principal */
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-50: #eff6ff;
+    
+    /* Neutros */
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-600: #475569;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+
+    /* Estados */
+    --success-bg: #f0fdf4;
+    --success-border: #bbf7d0;
+    --success-text: #15803d;
+    
+    --danger-bg: #fef2f2;
+    --danger-border: #fecaca;
+    --danger-text: #b91c1c;
+
+    /* Sombras Elevadas */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    --radius: 10px;
+    --transition: all 0.2s ease-in-out;
 }
 
+/* Reset y Bases */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--slate-50);
+    color: var(--slate-800);
     line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
+/* Encabezado Principal */
 header {
-    background-color: white;
-    border-bottom: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--slate-200);
     padding: 1rem 2rem;
+    box-shadow: var(--shadow-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+header h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 0.75rem;
     margin: 0;
     padding: 0;
 }
 
 header nav a {
     text-decoration: none;
-    color: var(--color-texto);
-    font-weight: 500;
+    color: var(--slate-600);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: calc(var(--radius) - 4px);
+    transition: var(--transition);
+}
+
+header nav a:hover {
+    background-color: var(--slate-100);
+    color: var(--primary-600);
 }
 
 header nav a[aria-current="page"] {
-    color: var(--color-primario);
-    font-weight: bold;
+    background-color: var(--primary-50);
+    color: var(--primary-600);
 }
 
+/* Foco de Accesibilidad Resaltado */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 3px solid var(--primary-600) !important;
+    outline-offset: 3px !important;
+    border-radius: 4px;
+}
+
+/* Contenedor Principal */
 main {
-    max-width: 800px;
-    margin: 2rem auto;
+    max-width: 850px;
+    margin: 2.5rem auto;
     padding: 0 1.5rem;
 }
 
-/* Foco visible estricto para accesibilidad por teclado (Tab / Shift+Tab)[span_17](start_span)[span_17](end_span) */
-a:focus, button:focus, input:focus, select:focus {
-    outline: 3px solid var(--color-primario);
-    outline-offset: 2px;
+main h2 {
+    font-size: 1.5rem;
+    color: var(--slate-900);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
 }
 
-/* Formularios y Campos */
+/* Estructura de Formularios */
+.form-card {
+    background: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
 .campo {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .campo label {
     display: block;
     font-weight: 600;
-    margin-bottom: 0.5srem;
+    font-size: 0.9rem;
+    color: var(--slate-800);
+    margin-bottom: 0.4rem;
 }
 
 input, select {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 1rem;
-    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--slate-200);
+    border-radius: calc(var(--radius) - 2px);
+    font-size: 0.95rem;
+    color: var(--slate-800);
+    background-color: #ffffff;
+    transition: var(--transition);
 }
 
-/* Alertas y Errores (W3C WAI aria-live)[span_18](start_span)[span_18](end_span) */
+input:hover, select:hover {
+    border-color: #cbd5e1;
+}
+
+/* Alertas Accesibles */
 .alerta-error {
-    background-color: #fef2f2;
-    border: 2px solid var(--color-error);
-    color: var(--color-error);
-    padding: 1rem;
-    border-radius: 6px;
+    background-color: var(--danger-bg);
+    border: 1px solid var(--danger-border);
+    color: var(--danger-text);
+    padding: 1.25rem;
+    border-radius: var(--radius);
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .alerta-error h3 {
-    margin-top: 0;
-    font-size: 1.1rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
-/* Botones y Enlaces de Acción */
+/* Botones */
 .btn-primario {
-    background-color: var(--color-primario);
-    color: white;
+    background-color: var(--primary-600);
+    color: #ffffff;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
     border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: calc(var(--radius) - 2px);
+    font-weight: 600;
+    font-size: 0.95rem;
     cursor: pointer;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primario:hover {
+    background-color: var(--primary-700);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-secundario {
-    background-color: #e2e8f0;
-    color: var(--color-texto);
+    background-color: #ffffff;
+    color: var(--slate-800);
+    border: 1px solid var(--slate-200);
     padding: 0.75rem 1.5rem;
     text-decoration: none;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: calc(var(--radius) - 2px);
+    font-weight: 600;
+    font-size: 0.95rem;
     cursor: pointer;
-    display: inline-block;
-    margin-left: 0.5rem;
+    display: inline-flex;
+    transition: var(--transition);
+}
+
+.btn-secundario:hover {
+    background-color: var(--slate-100);
+    border-color: #cbd5e1;
 }
 
 .btn-peligro {
-    background-color: var(--color-error);
-    color: white;
+    background-color: var(--danger-text);
+    color: #ffffff;
     padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: calc(var(--radius) - 2px);
+    font-weight: 600;
     cursor: pointer;
+    transition: var(--transition);
 }
 
-/* Tablas y Badges de Estado */
-.tabla-disponibilidad {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    background: white;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+.btn-peligro:hover {
+    background-color: #991b1b;
 }
 
-.tabla-disponibilidad th, .tabla-disponibilidad td {
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.badge.libre { background-color: #dcfce7; color: #166534; }
-.badge.ocupado { background-color: #fee2e2; color: #991b1b; }
-.badge.activa { background-color: #dbeafe; color: #1e40af; }
-
-/* Tarjetas de Mis Reservas y Detalle */
-.tarjeta-reserva, .ficha-detalle {
-    background: white;
+/* Tarjetas y Badges */
+.tarjeta-reserva {
+    background: #ffffff;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius);
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-sm);
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: var(--transition);
 }
 
-.ficha-detalle {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+.tarjeta-reserva:hover {
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
 }
 
-.grupo-detalle {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 0.5rem;
+.badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
 }
+
+.badge.activa { background-color: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-border); }
+.badge.ocupado { background-color: var(--danger-bg); color: var(--danger-text); border: 1px solid var(--danger-border); }
+.badge.libre { background-color: var(--primary-50); color: var(--primary-600); border: 1px solid #bfdbfe; }
